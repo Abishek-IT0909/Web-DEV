@@ -7,8 +7,7 @@ function checkEvenOdd(number) {
 }
 checkEvenOdd(50);
 checkEvenOdd(75);
-checkEvenOdd(23);
-checkEvenOdd(44);
+
 
 
 function printMultiplicationTable(number) {
@@ -16,7 +15,7 @@ function printMultiplicationTable(number) {
         console.log(`${number} x ${i} = ${number * i}`);
     }
 }
-printMultiplicationTable(5);
+printMultiplicationTable(10);
 
 function fizzBuzz() {
     for (let i = 1; i <= 20; i++) {
@@ -42,4 +41,5 @@ function printTriangle(n) {
         console.log(row);
     }
 }
+
 printTriangle(5);
