@@ -3,24 +3,129 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dynamic Colour Changer</title>
-  <link rel="stylesheet" href="./style.css">
-  <script src="./index.js" defer></script>
+  <title>Dynamic Color Changer</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .container {
+      text-align: center;
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    #colorBox {
+      width: 300px;
+      height: 200px;
+      margin: 30px auto;
+      border-radius: 12px;
+      border: 2px solid #ddd;
+      background-color: #ffffff; /* default color */
+      transition: background-color 0.4s ease;
+      box-shadow: inset 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .controls {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    input[type="color"] {
+      width: 80px;
+      height: 50px;
+      padding: 4px;
+      border-radius: 8px;
+      border: 2px solid #ccc;
+      cursor: pointer;
+    }
+
+    button {
+      padding: 12px 28px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background-color: #4a90e2;
+      color: white;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    button:hover {
+      background-color: #357abd;
+      transform: translateY(-1px);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    button.reset {
+      background-color: #e74c3c;
+    }
+
+    button.reset:hover {
+      background-color: #c0392b;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #666;
+      margin-top: 0;
+    }
+  </style>
 </head>
 <body>
 
   <div class="container">
-    <h1>Dynamic Colour Changer</h1>
-    
-    <div id="colourBox"></div>
+    <h1>Color Changer</h1>
+    <p>Pick a color </p>
+
+    <div id="colorBox"></div>
 
     <div class="controls">
-      <label for="colourPicker">Choose colour: </label>
-      <input type="colour" id="colourPicker" value="#ffffff">
-      <button class="reset" id="resetButton">Reset</button>
+      <input type="color" id="colorPicker" value="#ffffff">
+      <button id="resetBtn" class="reset">Reset</button>
     </div>
   </div>
 
-</body>
+  <script>
+    const colorBox = document.getElementById('colorBox');
+    const colorPicker = document.getElementById('colorPicker');
+    const resetBtn = document.getElementById('resetBtn');
 
+    const defaultColor = '#ffffff';
+
+    colorPicker.addEventListener('input', (e) => {
+      colorBox.style.backgroundColor = e.target.value;
+    });
+
+    resetBtn.addEventListener('click', () => {
+      colorBox.style.backgroundColor = defaultColor;
+      colorPicker.value = defaultColor; 
+    });
+
+    colorPicker.addEventListener('change', (e) => {
+      colorBox.style.backgroundColor = e.target.value;
+    });
+  </script>
+
+</body>
 </html>
