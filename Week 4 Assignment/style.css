@@ -12,8 +12,8 @@ body {
 .container { text-align: center; }
 
 #colorBox {
-  width: 1000px;
-  height: 400px;
+  width: 300px;
+  height: 300px;
   margin: 30px auto;
   background-color: #d21d1d;          
   border: 2px solid #eae1e1;
@@ -50,4 +50,5 @@ button.reset:hover { background-color: #138d76; }
 label {
   font-size: 18px;
   font-weight: bold;
+
 }
